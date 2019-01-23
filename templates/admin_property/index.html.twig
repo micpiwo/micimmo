@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}QiwoGames -Administration-{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row table-container">
+
+            <div class="col-sm-3">
+                {% include 'includes/leftmenu.html.twig' %}
+            </div>
+            <div class="col-sm-9">
+                {% for message in app.flashes('success') %}
+                    <div class="alert alert-success">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+                <ul class="list-group">
+                    <h1 href="#" class="h1-titre list-group-item list-group-item-primary active">
+                        <i class="fas fa-gamepad"></i> Administration des bien :
+                    </h1>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Titre</th>
+                            <th>Editer</th>
+                            <th>Supprimer</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        {% for property in properties %}
+                            <tr>
+                                <td>{{ property.title }}</td>
+                                <td><a class="btn btn-outline-warning" href="{{ path('admin.property.edit', {id: property.id}) }}">Editer</a></td>
+                                <td>
+                                    <form method="post" action="{{ path('admin.property.delete', {id: property.id}) }}" onsubmit= "return confirm('Confirmer la suppresion du bien ?')">
+                                        <input type="hidden" name="_method" value="DELETE"/>
+                                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ property.id) }}"/>
+                                        <button type="submit" class="btn btn-outline-danger">Supprimer</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <li class="list-group-item">
+                        <a href="{{ path('admin.property.new') }}" class="btn btn-outline-success">Ajouter un bien</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} MicImmo - {{ property.title }} - {% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row table-container">
+
+            <div class="col-sm-3">
+                {% include 'includes/leftmenu.html.twig' %}
+            </div>
+            <div class="col-sm-9">
+                <ul class="list-group">
+                    <h1 href="#" class="h1-titre list-group-item list-group-item-primary active">
+                        <i class="fas fa-home"></i> Nos offres les plus pertinentes :
+                    </h1>
+
+                    <li class="list-group-item">
+                        <div class="row">
+
+                            <div>
+                                <h2>{{ property.title }}</h2>
+                                <h3>{{ property.rooms }} pièces {{ property.surface }} m²</h3>
+                                <div class="text-danger">{{ property.formattedPrice }} €</div>
+                                <a href="" class="btn btn-outline-warning">Contacter notre agence</a>
+                            </div>
+                        </div>
+                            <br />
+                            <h4>{{ property.description | nl2br }}</h4>
+                            <br />
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <h2>Caratéristique du logement</h2>
+                                    <table class="table table-striped">
+                                        <tr>
+                                            <td>
+                                                Surface habitable :
+                                            </td>
+                                            <td>{{ property.surface }} m²</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                Nombre de pièces :
+                                            </td>
+                                            <td>{{ property.rooms }}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                Nombre de chambre
+                                            </td>
+                                            <td>{{ property.bedrooms }} </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                Nombre d'étages
+                                            </td>
+                                            <td>{{ property.floor }}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                Type de chauffage
+                                            </td>
+                                            <td>{{ property.heatType }}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="col-sm-4">
+                                    <h2>Spécificitées du logement</h2>
+                                    <div>
+                                        <p>{{ property.city }}</p>
+                                        <p>{{ property.address }}</p>
+                                        <p>{{ property.postalCode }}</p>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                    </li>
+                </ul>
+
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

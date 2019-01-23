@@ -1,0 +1,74 @@
+/*GENERAL*/
+html {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  font-family: "Open Sans Condensed", sans-serif !important; }
+
+body {
+  margin: 0;
+  padding: 0; }
+
+ol, ul, dl {
+  list-style-type: none !important; }
+
+/*SCROLLBAR*/
+body::-webkit-scrollbar {
+  width: 1em !important; }
+
+body::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important; }
+
+body::-webkit-scrollbar-thumb {
+  background-color: darkgrey !important;
+  outline: 1px solid slategrey !important; }
+
+.list-group-item {
+  padding: 30px; }
+
+/*nav bar*/
+#logo-qiwo {
+  width: 5%; }
+
+.navbar.bg-light {
+  margin: 15px;
+  background-color: #DF691A !important;
+  padding: 20px; }
+
+.navbar-style {
+  border: solid 1px #073642;
+  border-radius: 5px;
+  margin: 10px; }
+
+.h1-titre {
+  font-weight: bold;
+  background: #333333; }
+
+.h2-titre {
+  color: #2c3e50;
+  font-weight: bold; }
+
+.h3-titre {
+  padding: 0 0 0 20px;
+  color: #1a252f;
+  font-weight: bold; }
+
+.left-container {
+  margin: 20px 0 0 0; }
+
+.right-container {
+  margin: 20px 0 0 0;
+  border-bottom-right-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+  padding: 0;
+  border: #073642 1px solid; }
+
+.right-content {
+  border: solid 1px black; }
+
+.right-form {
+  margin-top: 5px;
+  padding: 20px;
+  background-color: #FFFFFF; }
+
+/*# sourceMappingURL=styles.css.map */

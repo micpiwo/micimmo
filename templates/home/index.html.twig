@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}QiwoGames -Accueil-{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row table-container">
+
+            <div class="col-sm-3">
+                {% include 'includes/leftmenu.html.twig' %}
+            </div>
+            <div class="col-sm-9">
+                <ul class="list-group">
+                    <h1 href="#" class="h1-titre list-group-item list-group-item-primary active">
+                        <i class="fas fa-gamepad"></i> Nos offres les plus pertinentes :
+                    </h1>
+
+                    <li class="list-group-item">
+                        {% for property in properties %}
+                        <div class="col-sm-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <a href="{{ path('property.show', {id: property.id, slug: property.slug}) }}">{{ property.title }}</a>
+                                        <p class="card-text">{{ property.city }} <em>{{ property.postalCode }}</em></p>
+                                        <p class="text-danger">{{ property.formattedPrice }} €</p>
+                                    </h5>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </li>
+                </ul>
+
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
