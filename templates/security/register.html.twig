@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}QiwoGames -Inscription-{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row table-container">
+
+            <div class="col-sm-3">
+                {% include 'includes/leftmenu.html.twig' %}
+            </div>
+            <div class="col-sm-9">
+                <ul class="list-group">
+                    <h1 href="#" class="h1-titre list-group-item list-group-item-primary active">
+                        <i class="fas fa-gamepad"></i> Formulaire d'inscription :
+                    </h1>
+
+                    <li class="list-group-item">
+                        {{ form_start(form) }}
+                        {{ form_rest(form) }}
+                        <button type="submit" class="btn btn-outline-primary">Inscription</button>
+                        {{ form_end(form) }}
+                    </li>
+                </ul>
+
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

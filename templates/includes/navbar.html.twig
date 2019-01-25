@@ -6,8 +6,14 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav nav-list">
             <li class="nav-item">
-                <a class="nav-link {% if current_menu is defined and current_menu == 'properties' %} active{% endif %}" href="{{ path('property.index') }}" alt="Accueil" title="Accueil">
+                <a class="nav-link {% if current_menu is defined and current_menu == 'properties' %} active{% endif %}" href="{{ path('home') }}" alt="Accueil" title="Accueil">
                     <i class="fas fa-home fa-3x"></i>
+                    <span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link {% if current_menu is defined and current_menu == 'properties' %} active{% endif %}" href="{{ path('property.index') }}" alt="All sells" title="Tous nos bien">
+                    <i class="fas fa-shopping-bag fa-3x"></i>
                     <span class="sr-only">(current)</span></a>
             </li>
         </ul>
@@ -15,12 +21,32 @@
 
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
         <ul class="navbar-nav ml-auto">
+            {% if app.user %}
+                <li class="nav-item">
 
-            <li class="nav-item">
-                <a class="nav-link nav-text {% if current_menu is defined and current_menu == "properties" %} active{% endif %}" href="" title="Espace Administration">
-                    <i class="fas fa-lock fa-3x"></i>
-                </a>
-            </li>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link nav-text" href="{{ path('security_registration') }}" title="Inscription">
+                        <i class="fas fa-registered fa-3x"></i>
+                    </a>
+                </li>
+            {% endif %}
+
+
+            {%  if app.user %}
+                <li class="nav-item">
+                    <a class="nav-link nav-text" href="{{ path('security_logout') }}" title="Deconnexion">
+                        <i class="fas fa-eye fa-3x"></i>
+                    </a>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link nav-text" href="{{ path('security_login') }}" title="Connexion">
+                        <i class="fas fa-eye-slash fa-3x"></i>
+                    </a>
+                </li>
+            {% endif %}
         </ul>
     </div>
 </nav>

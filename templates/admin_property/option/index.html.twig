@@ -17,26 +17,26 @@
                 {% endfor %}
                 <ul class="list-group">
                     <h1 href="#" class="h1-titre list-group-item list-group-item-primary active">
-                        <i class="fas fa-gamepad"></i> Administration des bien :
+                        <i class="fas fa-gamepad"></i> Administration des options :
                     </h1>
                     <table class="table table-striped">
                         <thead>
                         <tr>
-                            <th>Titre</th>
+                            <th>Nom</th>
                             <th>Editer</th>
                             <th>Supprimer</th>
                         </tr>
                         </thead>
 
                         <tbody>
-                        {% for property in properties %}
+                        {% for option in options %}
                             <tr>
-                                <td>{{ property.title }}</td>
-                                <td><a class="btn btn-outline-warning" href="{{ path('admin.property.edit', {id: property.id}) }}">Editer</a></td>
+                                <td>{{ option.name }}</td>
+                                <td><a class="btn btn-outline-warning" href="{{ path('admin.option.edit', {id: option.id}) }}">Editer</a></td>
                                 <td>
-                                    <form method="post" action="{{ path('admin.property.delete', {id: property.id}) }}" onsubmit= "return confirm('Confirmer la suppresion du bien ?')">
+                                    <form method="post" action="{{ path('admin.option.delete', {id: option.id}) }}" onsubmit= "return confirm('Confirmer la suppresion du bien ?')">
                                         <input type="hidden" name="_method" value="DELETE"/>
-                                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ property.id) }}"/>
+                                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ option.id) }}"/>
                                         <button type="submit" class="btn btn-outline-danger">Supprimer</button>
                                     </form>
                                 </td>
@@ -45,9 +45,7 @@
                         </tbody>
                     </table>
                     <li class="list-group-item">
-                        <a href="{{ path('admin.property.new') }}" class="btn btn-outline-success">Ajouter un bien</a>
-
-                        <a href="{{ path('admin.option.index') }}" class="btn btn-outline-warning">Gérer les options</a>
+                        <a href="{{ path('admin.option.new') }}" class="btn btn-outline-success">Ajouter un bien</a>
                     </li>
                 </ul>
             </div>

@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}QiwoGames -Connexion-{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row table-container">
+
+            <div class="col-sm-3">
+                {% include 'includes/leftmenu.html.twig' %}
+            </div>
+            <div class="col-sm-9">
+                {% if error %}
+                    <div class="alert alert-danger">
+                        {{ error.messageKey | trans(error.messageData, 'security') }}
+                    </div>
+                {% endif %}
+                <ul class="list-group">
+                    <h1 href="#" class="h1-titre list-group-item list-group-item-primary active">
+                        <i class="fas fa-gamepad"></i> Formulaire de connexion :
+                    </h1>
+
+                    <li class="list-group-item">
+                        <form action="{{ path('security_login') }}" method="post">
+                            <div class="form-group">
+                                <label for="username">Nom d'utilisateur</label>
+                                <input type="text" class="form-control" name="_username" id="username" required autofocus value="{{ lastUsername }}" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password">Mot de passe</label>
+                                <input type="password" class="form-control" name="_password" id="password" required autofocus />
+                            </div>
+
+                            <button class="btn btn-outline-success" type="submit">Connexion</button>
+                            <a href="{{ path('security_registration') }}" class="btn btn-outline-danger" type="submit">S'incrire</a>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+

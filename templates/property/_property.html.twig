@@ -1,0 +1,21 @@
+<div class="card mb-4">
+    <div class="card-body">
+
+        <h5 class="card-title">
+            <a href="{{ path('property.show', {slug: property.slug, id: property.id}) }}">
+                {{ property.title }}
+            </a>
+        </h5>
+        <div class="card-text">
+            <img src="https://place-hold.it/300" class="img-fluid" alt="" title="Bien n°{{ property.id }}"/>
+            {{ property.description | nl2br }}
+            <p>SURFACE :<b style="color: yellow;">{{ property.surface }} m²</b></p>
+            <p>{{ property.city }} <em>{{ property.postalCode }}</em></p>
+            <h3 class="text-primary">
+                {{ property.formattedPrice }} €
+            </h3>
+            <br />
+            <a class="btn btn-outline-success" href="{{ path('property.show', {slug: property.slug, id: property.id}) }}">Détail du bien</a>
+        </div>
+    </div>
+</div>

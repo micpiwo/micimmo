@@ -11,14 +11,32 @@
             </div>
             <div class="col-sm-9">
                 <ul class="list-group">
-                    <h1 href="#" class="h1-titre list-group-item list-group-item-primary active">
-                        <i class="fas fa-gamepad"></i> Détail du biens :
+                    <h1 class="h1-titre list-group-item list-group-item-primary active">
+                        <i class="fas fa-gamepad"></i> Tous nos du biens :
                     </h1>
+                    <br />
+                    <h2>Recherche rapide</h2>
+                    <br />
+                    {{ form_start(form) }}
+                    {{ form_row(form.minSurface) }}
+                    {{ form_row(form.maxPrice) }}
+                    <button type="submit" class="btn btn-outline-success">Rechercher</button>
+                    {{ form_end(form) }}
+                    <br />
 
                     <li class="list-group-item">
+                        <div class="row">
+                        {% for property in properties %}
+                            <div class="col-sm-3">
+                                {% include 'property/_property.html.twig' %}
+                            </div>
+                        {% endfor %}
+                        </div>
+                        <div class="text-center pagination">
+                            {{ knp_pagination_render(properties) }}
+                        </div>
                     </li>
                 </ul>
-
 
             </div>
         </div>
